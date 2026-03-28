@@ -53,7 +53,6 @@ export default function SignupPage() {
         coachId = invite.coach_id
       }
 
-      // Sign up
       const { error: authError } = await supabase.auth.signUp({
         email,
         password,
@@ -71,7 +70,6 @@ export default function SignupPage() {
         return
       }
 
-      // Sign in immediately after signup
       const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -83,7 +81,6 @@ export default function SignupPage() {
         return
       }
 
-  // Create profile via API route that bypasses RLS
       console.log('Creating profile for:', signInData.user.id)
       const profileRes = await fetch('/api/create-profile', {
         method: 'POST',
@@ -101,21 +98,6 @@ export default function SignupPage() {
 
       if (!profileRes.ok) {
         setError('Could not create profile: ' + profileResJson.error)
-        setLoading(false)
-        return
-      }
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: signInData.user.id,
-          full_name: fullName,
-          role: role,
-        }),
-      })
-
-      if (!profileRes.ok) {
-        const err = await profileRes.json()
-        setError('Could not create profile: ' + err.error)
         setLoading(false)
         return
       }
@@ -141,8 +123,9 @@ export default function SignupPage() {
         router.push('/home')
       }
 
-    } catch {
-      setError('Something went wrong. Please try again.')
+    } catch (err) {
+      console.log('Caught error:', err)
+      setError('Error: ' + JSON.stringify(err))
       setLoading(false)
     }
   }
