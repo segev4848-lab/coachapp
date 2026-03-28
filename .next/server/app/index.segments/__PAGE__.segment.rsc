@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0ka051yepewro.js"],""]
+3:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-zinc-950 flex items-center justify-center p-4","children":["$","div",null,{"className":"text-center","children":[["$","h1",null,{"className":"text-4xl font-bold text-white mb-2","children":"CoachApp"}],["$","p",null,{"className":"text-zinc-400 mb-8","children":"The platform built for coaches"}],["$","div",null,{"className":"flex gap-3 justify-center","children":[["$","$L2",null,{"href":"/signup","className":"bg-white text-zinc-900 font-semibold px-6 py-3 rounded-xl hover:bg-zinc-100 transition-colors","children":"Sign Up"}],["$","$L2",null,{"href":"/login","className":"border border-zinc-700 text-white font-semibold px-6 py-3 rounded-xl hover:border-zinc-500 transition-colors","children":"Log In"}]]}]]}]}],[["$","script","script-0",{"src":"/_next/static/chunks/0ka051yepewro.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"LDG_zp_NXfHJtTqKBGkqm"}
+5:null

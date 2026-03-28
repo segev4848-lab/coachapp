@@ -1,0 +1,3 @@
+module.exports=[90430,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsx)("div",{className:"min-h-screen bg-zinc-950 flex items-center justify-center p-4",children:(0,b.jsxs)("div",{className:"w-full max-w-md",children:[(0,b.jsxs)("div",{className:"text-center mb-8",children:[(0,b.jsx)("h1",{className:"text-3xl font-bold text-white tracking-tight",children:"CoachApp"}),(0,b.jsx)("p",{className:"text-zinc-400 mt-1 text-sm",children:"The platform built for coaches"})]}),(0,b.jsx)("div",{className:"bg-zinc-900 border border-zinc-800 rounded-2xl p-8",children:a})]})})}])},67782,a=>{a.n(a.i(90430))}];
+
+//# sourceMappingURL=src_app_%28auth%29_layout_tsx_0v6764i._.js.map

@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(coach)/layout,_N_T_/(coach)/trainees/layout,_N_T_/(coach)/trainees/invite/layout,_N_T_/(coach)/trainees/invite/page,_N_T_/trainees/invite"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNvYWNoKQ/trainees/invite/__PAGE__",
+    "/!KGNvYWNoKQ/trainees/invite",
+    "/!KGNvYWNoKQ/trainees",
+    "/!KGNvYWNoKQ",
+    "/_index",
+    "/_head"
+  ]
+}

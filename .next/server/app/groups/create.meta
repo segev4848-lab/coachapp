@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(coach)/layout,_N_T_/(coach)/groups/layout,_N_T_/(coach)/groups/create/layout,_N_T_/(coach)/groups/create/page,_N_T_/groups/create"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNvYWNoKQ/groups/create/__PAGE__",
+    "/!KGNvYWNoKQ/groups/create",
+    "/!KGNvYWNoKQ/groups",
+    "/!KGNvYWNoKQ",
+    "/_index",
+    "/_head"
+  ]
+}

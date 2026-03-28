@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(trainee)/layout,_N_T_/(trainee)/checkins/layout,_N_T_/(trainee)/checkins/new/layout,_N_T_/(trainee)/checkins/new/page,_N_T_/checkins/new"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHRyYWluZWUp/checkins/new/__PAGE__",
+    "/!KHRyYWluZWUp/checkins/new",
+    "/!KHRyYWluZWUp/checkins",
+    "/!KHRyYWluZWUp",
+    "/_index",
+    "/_head"
+  ]
+}

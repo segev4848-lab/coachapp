@@ -1,0 +1,3 @@
+{
+  "/(coach)/community/[id]/page": "app/(coach)/community/[id]/page.js"
+}

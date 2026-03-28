@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(coach)/layout,_N_T_/(coach)/profile/layout,_N_T_/(coach)/profile/page,_N_T_/profile"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNvYWNoKQ/profile/__PAGE__",
+    "/!KGNvYWNoKQ/profile",
+    "/!KGNvYWNoKQ",
+    "/_index",
+    "/_head"
+  ]
+}
