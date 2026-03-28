@@ -76,21 +76,15 @@ export default function SignupPage() {
         return
       }
 
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise(resolve => setTimeout(resolve, 2000))
 
       if (role === 'trainee' && coachId) {
-        const { error: relationError } = await supabase
+        await supabase
           .from('coach_trainees')
           .insert({
             coach_id: coachId,
             trainee_id: authData.user.id,
           })
-
-        if (relationError) {
-          setError('Could not connect to coach. Please try again.')
-          setLoading(false)
-          return
-        }
       }
 
       if (role === 'coach') {
