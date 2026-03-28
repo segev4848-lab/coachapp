@@ -76,7 +76,20 @@ export default function SignupPage() {
         return
       }
 
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Create profile directly
+      const { error: profileInsertError } = await supabase
+        .from('profiles')
+        .insert({
+          id: authData.user.id,
+          full_name: fullName,
+          role: role,
+        })
+
+      if (profileInsertError) {
+        setError('Could not create profile. Please try again.')
+        setLoading(false)
+        return
+      }
 
       if (role === 'trainee' && coachId) {
         await supabase
