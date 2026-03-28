@@ -53,7 +53,8 @@ export default function SignupPage() {
         coachId = invite.coach_id
       }
 
-      const { data: authData, error: authError } = await supabase.auth.signUp({
+      // Sign up
+      const { error: authError } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -70,23 +71,29 @@ export default function SignupPage() {
         return
       }
 
-      if (!authData.user) {
-        setError('Something went wrong. Please try again.')
+      // Sign in immediately after signup
+      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (signInError || !signInData.user) {
+        setError('Account created but could not sign in. Please try logging in.')
         setLoading(false)
         return
       }
 
-      // Create profile directly
-      const { error: profileInsertError } = await supabase
+      // Now create profile while fully authenticated
+      const { error: profileError } = await supabase
         .from('profiles')
         .insert({
-          id: authData.user.id,
+          id: signInData.user.id,
           full_name: fullName,
           role: role,
         })
 
-      if (profileInsertError) {
-        setError('Could not create profile. Please try again.')
+      if (profileError) {
+        setError('Could not create profile: ' + profileError.message)
         setLoading(false)
         return
       }
@@ -96,14 +103,14 @@ export default function SignupPage() {
           .from('coach_trainees')
           .insert({
             coach_id: coachId,
-            trainee_id: authData.user.id,
+            trainee_id: signInData.user.id,
           })
       }
 
       if (role === 'coach') {
         await supabase
           .from('coach_profiles')
-          .insert({ coach_id: authData.user.id })
+          .insert({ coach_id: signInData.user.id })
       }
 
       if (role === 'coach') {
