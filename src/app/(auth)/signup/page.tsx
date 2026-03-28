@@ -83,17 +83,20 @@ export default function SignupPage() {
         return
       }
 
-      // Now create profile while fully authenticated
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .insert({
+ // Create profile via API route that bypasses RLS
+      const profileRes = await fetch('/api/create-profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           id: signInData.user.id,
           full_name: fullName,
           role: role,
-        })
+        }),
+      })
 
-      if (profileError) {
-        setError('Could not create profile: ' + profileError.message)
+      if (!profileRes.ok) {
+        const err = await profileRes.json()
+        setError('Could not create profile: ' + err.error)
         setLoading(false)
         return
       }
