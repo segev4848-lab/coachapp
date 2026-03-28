@@ -83,8 +83,27 @@ export default function SignupPage() {
         return
       }
 
- // Create profile via API route that bypasses RLS
+  // Create profile via API route that bypasses RLS
+      console.log('Creating profile for:', signInData.user.id)
       const profileRes = await fetch('/api/create-profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: signInData.user.id,
+          full_name: fullName,
+          role: role,
+        }),
+      })
+
+      console.log('Profile response status:', profileRes.status)
+      const profileResJson = await profileRes.json()
+      console.log('Profile response:', profileResJson)
+
+      if (!profileRes.ok) {
+        setError('Could not create profile: ' + profileResJson.error)
+        setLoading(false)
+        return
+      }
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
