@@ -1,4 +1,5 @@
-'use client'
+Now update the signup page. Open src/app/(auth)/signup/page.tsx and replace everything with this:
+tsx'use client'
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -81,7 +82,6 @@ export default function SignupPage() {
         return
       }
 
-      console.log('Creating profile for:', signInData.user.id)
       const profileRes = await fetch('/api/create-profile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -92,9 +92,7 @@ export default function SignupPage() {
         }),
       })
 
-      console.log('Profile response status:', profileRes.status)
       const profileResJson = await profileRes.json()
-      console.log('Profile response:', profileResJson)
 
       if (!profileRes.ok) {
         setError('Could not create profile: ' + profileResJson.error)
@@ -124,26 +122,27 @@ export default function SignupPage() {
       }
 
     } catch (err) {
-      console.log('Caught error:', err)
-      setError('Error: ' + JSON.stringify(err))
+      setError('Something went wrong. Please try again.')
       setLoading(false)
     }
   }
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-white mb-6">
-        Create your account
+      <h2 className="text-2xl font-black text-white mb-2">
+        CREATE ACCOUNT
       </h2>
+      <p className="text-zinc-500 text-sm mb-8">Join the coach platform</p>
 
+      {/* Role selector */}
       <div className="mb-6">
-        <p className="text-zinc-400 text-sm mb-3">I am a...</p>
+        <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">I am a...</p>
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={() => setRole('coach')}
-            className={`p-4 rounded-xl border-2 text-sm font-medium transition-all ${
+            className={`p-4 rounded-xl border-2 text-sm font-black uppercase tracking-wide transition-all ${
               role === 'coach'
-                ? 'border-white text-white bg-zinc-800'
+                ? 'border-[#39ff14] text-[#39ff14] bg-[#39ff14]/10'
                 : 'border-zinc-700 text-zinc-400 hover:border-zinc-500'
             }`}
           >
@@ -151,9 +150,9 @@ export default function SignupPage() {
           </button>
           <button
             onClick={() => setRole('trainee')}
-            className={`p-4 rounded-xl border-2 text-sm font-medium transition-all ${
+            className={`p-4 rounded-xl border-2 text-sm font-black uppercase tracking-wide transition-all ${
               role === 'trainee'
-                ? 'border-white text-white bg-zinc-800'
+                ? 'border-[#39ff14] text-[#39ff14] bg-[#39ff14]/10'
                 : 'border-zinc-700 text-zinc-400 hover:border-zinc-500'
             }`}
           >
@@ -164,41 +163,41 @@ export default function SignupPage() {
 
       <div className="space-y-4">
         <div>
-          <label className="block text-zinc-400 text-sm mb-1">Full name</label>
+          <label className="block text-zinc-400 text-xs font-bold uppercase tracking-widest mb-2">Full name</label>
           <input
             type="text"
             value={fullName}
             onChange={e => setFullName(e.target.value)}
             placeholder="Your name"
-            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-400 text-sm"
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#39ff14] text-sm transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-zinc-400 text-sm mb-1">Email</label>
+          <label className="block text-zinc-400 text-xs font-bold uppercase tracking-widest mb-2">Email</label>
           <input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-400 text-sm"
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#39ff14] text-sm transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-zinc-400 text-sm mb-1">Password</label>
+          <label className="block text-zinc-400 text-xs font-bold uppercase tracking-widest mb-2">Password</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder="At least 6 characters"
-            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-400 text-sm"
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#39ff14] text-sm transition-colors"
           />
         </div>
 
         {role === 'trainee' && (
           <div>
-            <label className="block text-zinc-400 text-sm mb-1">
+            <label className="block text-zinc-400 text-xs font-bold uppercase tracking-widest mb-2">
               Coach invite code
             </label>
             <input
@@ -206,9 +205,9 @@ export default function SignupPage() {
               value={inviteCode}
               onChange={e => setInviteCode(e.target.value)}
               placeholder="e.g. MIKE2024"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-400 text-sm uppercase tracking-widest"
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#39ff14] text-sm uppercase tracking-widest transition-colors"
             />
-            <p className="text-zinc-500 text-xs mt-1">
+            <p className="text-zinc-600 text-xs mt-1">
               Ask your coach for their invite code
             </p>
           </div>
@@ -224,14 +223,14 @@ export default function SignupPage() {
       <button
         onClick={handleSignup}
         disabled={loading}
-        className="w-full mt-6 bg-white text-zinc-900 font-semibold py-3 rounded-xl hover:bg-zinc-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full mt-6 bg-[#39ff14] text-black font-black py-4 rounded-xl hover:bg-[#39ff14]/90 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 text-lg"
       >
-        {loading ? 'Creating account...' : 'Create account'}
+        {loading ? 'CREATING ACCOUNT...' : 'CREATE ACCOUNT'}
       </button>
 
-      <p className="text-center text-zinc-500 text-sm mt-4">
+      <p className="text-center text-zinc-500 text-sm mt-6">
         Already have an account?{' '}
-        <Link href="/login" className="text-white hover:underline">
+        <Link href="/login" className="text-[#39ff14] font-bold hover:underline">
           Log in
         </Link>
       </p>

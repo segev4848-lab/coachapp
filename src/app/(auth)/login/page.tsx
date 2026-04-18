@@ -53,32 +53,33 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-white mb-6">
-        Welcome back
+      <h2 className="text-2xl font-black text-white mb-2">
+        WELCOME BACK
       </h2>
+      <p className="text-zinc-500 text-sm mb-8">Log in to your account</p>
 
       <div className="space-y-4">
         <div>
-          <label className="block text-zinc-400 text-sm mb-1">Email</label>
+          <label className="block text-zinc-400 text-xs font-bold uppercase tracking-widest mb-2">Email</label>
           <input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="you@example.com"
-            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-400 text-sm"
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#39ff14] text-sm transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-zinc-400 text-sm mb-1">Password</label>
+          <label className="block text-zinc-400 text-xs font-bold uppercase tracking-widest mb-2">Password</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Your password"
-            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-400 text-sm"
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#39ff14] text-sm transition-colors"
           />
         </div>
       </div>
@@ -92,14 +93,14 @@ export default function LoginPage() {
       <button
         onClick={handleLogin}
         disabled={loading}
-        className="w-full mt-6 bg-white text-zinc-900 font-semibold py-3 rounded-xl hover:bg-zinc-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full mt-6 bg-[#39ff14] text-black font-black py-4 rounded-xl hover:bg-[#39ff14]/90 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 text-lg"
       >
-        {loading ? 'Logging in...' : 'Log in'}
+        {loading ? 'LOGGING IN...' : 'LOG IN'}
       </button>
 
-      <p className="text-center text-zinc-500 text-sm mt-4">
+      <p className="text-center text-zinc-500 text-sm mt-6">
         Don't have an account?{' '}
-        <Link href="/signup" className="text-white hover:underline">
+        <Link href="/signup" className="text-[#39ff14] font-bold hover:underline">
           Sign up
         </Link>
       </p>
