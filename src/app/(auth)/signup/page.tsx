@@ -1,5 +1,4 @@
-Now update the signup page. Open src/app/(auth)/signup/page.tsx and replace everything with this:
-tsx'use client'
+'use client'
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -134,7 +133,6 @@ export default function SignupPage() {
       </h2>
       <p className="text-zinc-500 text-sm mb-8">Join the coach platform</p>
 
-      {/* Role selector */}
       <div className="mb-6">
         <p className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-3">I am a...</p>
         <div className="grid grid-cols-2 gap-3">
